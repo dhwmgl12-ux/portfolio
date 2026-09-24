@@ -1,6 +1,16 @@
-import { ThemeProvider } from "@emotion/react";
-import { theme } from "./styles/theme";
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { Global, ThemeProvider } from "@emotion/react";
 
-<ThemeProvider theme={theme}>
-  <App />
-</ThemeProvider>;
+import App from "./App";
+import { theme } from "./styles/theme";
+import { globalStyles } from "./styles/GlobalStyle";
+
+createRoot(document.getElementById("root")).render(
+  <StrictMode>
+    <ThemeProvider theme={theme}>
+      <Global styles={globalStyles} />
+      <App />
+    </ThemeProvider>
+  </StrictMode>,
+);
