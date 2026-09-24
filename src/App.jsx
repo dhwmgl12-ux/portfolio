@@ -3,6 +3,7 @@ import { useState } from "react";
 import Header from "./components/layout/Header/Header";
 import Hero from "./components/sections/Hero/Hero";
 import Snapshot from "./components/sections/Snapshot/Snapshot";
+import FeaturedProject from "./components/sections/FeaturedProject/FeaturedProject";
 import * as S from "./App.styles";
 
 export default function App() {
@@ -46,12 +47,7 @@ export default function App() {
           <Snapshot />
         </S.IntroLayout>
 
-        <S.ProjectSection id="project" aria-labelledby="project-title">
-          <S.Eyebrow>02 / FEATURED PROJECT</S.Eyebrow>
-          <h2 id="project-title">ZooLeaf</h2>
-          <p>동물원 예약 및 쇼핑 전문 e-Commerce</p>
-          <S.Muted>담당: 장바구니 · 마이페이지 · 404 페이지</S.Muted>
-        </S.ProjectSection>
+        <FeaturedProject />
       </main>
     </>
   );
