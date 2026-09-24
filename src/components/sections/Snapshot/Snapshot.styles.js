@@ -78,3 +78,18 @@ export const Description = styled.p`
   line-height: 1.7;
   overflow-wrap: anywhere;
 `;
+
+export const IconCircle = styled.span`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  margin-bottom: ${({ theme }) => theme.spacing.sm};
+  border: 1px solid ${({ theme }) => theme.colors.border};
+  border-radius: 50%;
+  background: ${({ theme }) => theme.colors.background};
+  font-size: 22px;
+  line-height: 1;
+`;

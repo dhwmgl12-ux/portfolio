@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import heroImage from "../../../assets/hero.png";
+import heroImage from "../../../assets/note.webp";
 
 export const HeroSection = styled.section`
   position: relative;

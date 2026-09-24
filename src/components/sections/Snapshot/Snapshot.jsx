@@ -15,6 +15,8 @@ export default function Snapshot() {
       <S.CardList>
         {snapshotItems.map((item) => (
           <S.Card key={item.id}>
+            <S.IconCircle aria-hidden="true">{item.icon}</S.IconCircle>
+
             <S.Value>{item.value}</S.Value>
             <S.Label>{item.label}</S.Label>
             <S.Description>{item.description}</S.Description>

@@ -7,7 +7,6 @@ export default function Hero() {
       <S.HeroContent>
         <S.Eyebrow>FRONTEND DEVELOPER</S.Eyebrow>
         <S.Name>PARK HYEONGWOO</S.Name>
-
         <S.Title id="hero-title">
           사용자의 불편을
           <br />
