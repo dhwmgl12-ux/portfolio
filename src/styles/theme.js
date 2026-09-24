@@ -30,4 +30,23 @@ export const theme = {
     tablet: "1023px",
     desktop: "1439px",
   },
+
+  layout: {
+    contentWidth: "1200px",
+    introColumns: "minmax(0, 7fr) minmax(0, 3fr)",
+  },
+
+  typography: {
+    caption: "12px",
+    small: "14px",
+    body: "16px",
+    sectionTitle: "clamp(22px, 2.2vw, 28px)",
+    heroTitle: "clamp(32px, 3.4vw, 48px)",
+  },
+
+  fontWeight: {
+    medium: 500,
+    bold: 700,
+    extraBold: 800,
+  },
 };

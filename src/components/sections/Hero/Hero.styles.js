@@ -5,11 +5,13 @@ export const HeroSection = styled.section`
   position: relative;
   isolation: isolate;
   display: flex;
+  flex: 1;
+  width: 100%;
   align-items: center;
-  max-width: 1200px;
-  min-height: 700px;
-  margin: 0 auto;
-  padding: 88px ${({ theme }) => theme.spacing.lg};
+  min-width: 0;
+  min-height: 640px;
+  padding: ${({ theme }) =>
+    `${theme.spacing.xl} ${theme.spacing.md} ${theme.spacing.xxl}`};
 
   background-image:
     linear-gradient(
@@ -23,8 +25,10 @@ export const HeroSection = styled.section`
   background-position: center;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
-    min-height: 640px;
-    padding: 56px 20px 80px;
+    min-height: 580px;
+    padding: ${({ theme }) => theme.spacing.xl}
+      ${({ theme }) => theme.spacing.md} ${({ theme }) => theme.spacing.xxl};
+
     background-position: 65% center;
     background-image:
       linear-gradient(90deg, rgba(11, 13, 12, 0.94), rgba(11, 13, 12, 0.72)),
@@ -34,7 +38,9 @@ export const HeroSection = styled.section`
 
 export const HeroContent = styled.div`
   width: 100%;
-  max-width: 640px;
+  min-width: 0;
+  max-width: 460px;
+  text-align: left;
 `;
 
 export const Eyebrow = styled.p`
@@ -54,8 +60,8 @@ export const Name = styled.p`
 
 export const Title = styled.h1`
   margin: 0;
-  font-size: clamp(32px, 4.8vw, 60px);
-  font-weight: 800;
+  font-size: ${({ theme }) => theme.typography.heroTitle};
+  font-weight: ${({ theme }) => theme.fontWeight.extraBold};
   line-height: 1.2;
   letter-spacing: -0.045em;
 

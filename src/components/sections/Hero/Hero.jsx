@@ -3,7 +3,7 @@ import * as S from "./Hero.styles";
 
 export default function Hero() {
   return (
-    <S.HeroSection id="home" aria-labelledby="hero-title">
+    <S.HeroSection id="home" tabIndex={-1} aria-labelledby="hero-title">
       <S.HeroContent>
         <S.Eyebrow>FRONTEND DEVELOPER</S.Eyebrow>
         <S.Name>PARK HYEONGWOO</S.Name>
