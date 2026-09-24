@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styled from "@emotion/styled";
 import heroImage from "./assets/hero.png";
+import Header from "./components/layout/Header/Header";
 
 const skills = ["React", "JavaScript", "Zustand", "REST API"];
 
@@ -11,27 +12,10 @@ export default function App() {
     <>
       <SkipLink href="#main">본문 바로가기</SkipLink>
 
-      <Header>
-        <HeaderInner>
-          <Logo href="#home" aria-label="박형우 포트폴리오 홈">
-            PHW<span>.</span>
-          </Logo>
-
-          <Nav aria-label="주요 메뉴">
-            <NavLink href="#home">Home</NavLink>
-            <NavLink href="#project">Project</NavLink>
-          </Nav>
-
-          <SummaryButton
-            type="button"
-            aria-expanded={isSummaryOpen}
-            aria-controls="recruiter-summary"
-            onClick={() => setIsSummaryOpen((prev) => !prev)}
-          >
-            {isSummaryOpen ? "요약 닫기" : "30초 요약"}
-          </SummaryButton>
-        </HeaderInner>
-      </Header>
+      <Header
+        isSummaryOpen={isSummaryOpen}
+        onToggleSummary={() => setIsSummaryOpen((previous) => !previous)}
+      />
 
       <main id="main">
         <Summary
@@ -119,78 +103,6 @@ const SkipLink = styled.a`
 
   &:focus {
     transform: translateY(0);
-  }
-`;
-
-const Header = styled.header`
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.border};
-  background: ${({ theme }) => theme.colors.background};
-`;
-
-const HeaderInner = styled.div`
-  max-width: 1200px;
-  min-height: 76px;
-  margin: 0 auto;
-  padding: 12px 24px;
-  display: flex;
-  align-items: center;
-  gap: 32px;
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
-    min-height: 68px;
-    gap: 16px;
-    padding-inline: 16px;
-    flex-wrap: wrap;
-  }
-`;
-
-const Logo = styled.a`
-  font-size: 24px;
-  font-weight: 900;
-  letter-spacing: -1px;
-
-  span {
-    color: ${({ theme }) => theme.colors.accent};
-  }
-`;
-
-const Nav = styled.nav`
-  display: flex;
-  gap: 20px;
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
-    gap: 12px;
-  }
-`;
-
-const NavLink = styled.a`
-  padding-block: 10px;
-  font-size: 14px;
-  color: ${({ theme }) => theme.colors.textSecondary};
-  transition: color 160ms ease;
-
-  &:hover {
-    color: ${({ theme }) => theme.colors.accent};
-  }
-`;
-
-const SummaryButton = styled.button`
-  margin-left: auto;
-  min-height: 44px;
-  padding: 8px 16px;
-  border: 1px solid ${({ theme }) => theme.colors.accent};
-  border-radius: 999px;
-  background: transparent;
-  color: ${({ theme }) => theme.colors.accent};
-  font-size: 13px;
-  cursor: pointer;
-
-  &[aria-expanded="true"] {
-    background: ${({ theme }) => theme.colors.accent};
-    color: ${({ theme }) => theme.colors.background};
   }
 `;
 
