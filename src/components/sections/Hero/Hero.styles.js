@@ -6,11 +6,10 @@ export const HeroSection = styled.section`
   isolation: isolate;
   display: flex;
   align-items: center;
-  max-width: 1440px;
+  max-width: 1200px;
   min-height: 700px;
   margin: 0 auto;
-  padding: 88px
-    max(${({ theme }) => theme.spacing.lg}, calc((100% - 1152px) / 2));
+  padding: 88px ${({ theme }) => theme.spacing.lg};
 
   background-image:
     linear-gradient(
