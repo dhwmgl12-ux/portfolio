@@ -4,9 +4,9 @@ export const IntroLayout = styled.div`
   display: grid;
   grid-template-columns: ${({ theme }) => theme.layout.introColumns};
   align-items: stretch;
+  width: 100%;
   max-width: ${({ theme }) => theme.layout.contentWidth};
   margin-inline: auto;
-  border-inline: 1px solid ${({ theme }) => theme.colors.border};
 
   @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
     grid-template-columns: minmax(0, 1fr);
@@ -65,4 +65,9 @@ export const ProjectSection = styled.section`
 
 export const Muted = styled.p`
   color: ${({ theme }) => theme.colors.textSecondary};
+`;
+
+export const IntroBackground = styled.div`
+  width: 100%;
+  background: ${({ theme }) => theme.colors.background};
 `;

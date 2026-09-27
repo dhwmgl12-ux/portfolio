@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
 
 export const ProjectSection = styled.section`
-  max-width: ${({ theme }) => theme.layout.contentWidth};
-  margin-inline: auto;
+  width: 100%;
+  background: ${({ theme }) => theme.colors.background};
   border-top: 1px solid ${({ theme }) => theme.colors.border};
 `;
 
@@ -13,6 +13,9 @@ export const FeaturedLayout = styled.div`
     minmax(0, 1.25fr)
     minmax(0, 1fr);
   align-items: center;
+  width: 100%;
+  max-width: ${({ theme }) => theme.layout.contentWidth};
+  margin-inline: auto;
   gap: ${({ theme }) => theme.spacing.lg};
   padding: ${({ theme }) => `${theme.spacing.xl} ${theme.spacing.lg}`};
 
@@ -182,16 +185,29 @@ export const ContributionTitle = styled.h3`
 `;
 
 export const TeamInfo = styled.p`
+  display: flex;
+  flex-direction: column;
+  gap: ${({ theme }) => theme.spacing.xs};
   margin: 0;
   padding-top: ${({ theme }) => theme.spacing.md};
   border-top: 1px solid ${({ theme }) => theme.colors.border};
   color: ${({ theme }) => theme.colors.textSecondary};
   font-size: ${({ theme }) => theme.typography.caption};
+
+  span:nth-of-type(2) {
+    color: ${({ theme }) => theme.colors.text};
+  }
 `;
 
 export const Overview = styled.div`
-  padding: ${({ theme }) => `${theme.spacing.xl} ${theme.spacing.lg}`};
   border-top: 1px solid ${({ theme }) => theme.colors.border};
+`;
+
+export const OverviewInner = styled.div`
+  width: 100%;
+  max-width: ${({ theme }) => theme.layout.contentWidth};
+  margin-inline: auto;
+  padding: ${({ theme }) => `${theme.spacing.xl} ${theme.spacing.lg}`};
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     padding-inline: ${({ theme }) => theme.spacing.md};

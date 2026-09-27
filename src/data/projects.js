@@ -4,7 +4,8 @@ export const zooleafProject = {
   description:
     "입장권 예매, 체험 프로그램 예약, 굿즈 구매를 한곳에서 제공하는 팀 프로젝트입니다.",
   githubUrl: "https://github.com/dhwmgl12-ux/zooleaf",
-  siteUrl: "",
+  siteUrl: "https://zooleaf.vercel.app/",
+  period: "2026.08.25 ~ 2026.09.18",
   team: "5인 팀 프로젝트",
   skills: ["React", "JavaScript", "Zustand", "Emotion", "REST API", "Vite"],
   contributions: [

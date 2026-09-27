@@ -86,43 +86,49 @@ export default function FeaturedProject() {
             ))}
           </S.ContributionList>
 
-          <S.TeamInfo>{project.team}</S.TeamInfo>
+          <S.TeamInfo>
+            <span>PROJECT PERIOD</span>
+            <span>{project.period}</span>
+            <span>{project.team}</span>
+          </S.TeamInfo>
         </S.ContributionPanel>
       </S.FeaturedLayout>
 
       <S.Overview aria-labelledby="overview-title">
-        <S.Eyebrow>03 / PROJECT OVERVIEW</S.Eyebrow>
-        <S.SectionTitle id="overview-title">
-          주요 페이지 미리보기
-        </S.SectionTitle>
-        <S.Description>
-          팀 전체 화면과 제가 직접 담당한 화면을 구분했습니다. 화면을 선택하면
-          확대해서 볼 수 있습니다.
-        </S.Description>
+        <S.OverviewInner>
+          <S.Eyebrow>03 / PROJECT OVERVIEW</S.Eyebrow>
+          <S.SectionTitle id="overview-title">
+            주요 페이지 미리보기
+          </S.SectionTitle>
+          <S.Description>
+            팀 전체 화면과 제가 직접 담당한 화면을 구분했습니다. 화면을 선택하면
+            확대해서 볼 수 있습니다.
+          </S.Description>
 
-        <S.ScreenList>
-          {project.screens.map((screen) => (
-            <li key={screen.id}>
-              <S.ScreenButton
-                type="button"
-                onClick={() => openScreen(screen)}
-                aria-haspopup="dialog"
-                aria-label={`${screen.title} 확대 보기`}
-              >
-                <S.Thumbnail
-                  src={screen.image}
-                  alt=""
-                  loading="lazy"
-                  decoding="async"
-                />
-                <S.ScreenTitle>{screen.title}</S.ScreenTitle>
-                <S.Ownership $isMine={screen.isMine}>
-                  {screen.isMine ? "직접 담당" : "팀 구현"}
-                </S.Ownership>
-              </S.ScreenButton>
-            </li>
-          ))}
-        </S.ScreenList>
+          <S.ScreenList>
+            {project.screens.map((screen) => (
+              <li key={screen.id}>
+                <S.ScreenButton
+                  type="button"
+                  onClick={() => openScreen(screen)}
+                  aria-haspopup="dialog"
+                  aria-label={`${screen.title} 확대 보기`}
+                >
+                  <S.Thumbnail
+                    src={screen.image}
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <S.ScreenTitle>{screen.title}</S.ScreenTitle>
+                  <S.Ownership $isMine={screen.isMine}>
+                    {screen.isMine ? "직접 담당" : "팀 구현"}
+                  </S.Ownership>
+                </S.ScreenButton>
+              </li>
+            ))}
+          </S.ScreenList>
+        </S.OverviewInner>
       </S.Overview>
 
       <S.ScreenDialog
