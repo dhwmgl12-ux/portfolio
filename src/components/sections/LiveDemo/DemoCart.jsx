@@ -1,5 +1,6 @@
 import { useDemoCartStore } from "../../../store/demoCartStore";
 import { calculateDemoAmounts, formatWon } from "../../../utils/demoCart";
+import DiscountVerification from "./DiscountVerification";
 import * as S from "./LiveDemo.styles";
 
 export default function DemoCart() {
@@ -10,9 +11,6 @@ export default function DemoCart() {
   const changeQuantity = useDemoCartStore((state) => state.changeQuantity);
   const removeItem = useDemoCartStore((state) => state.removeItem);
   const clearCart = useDemoCartStore((state) => state.clearCart);
-  const setPartnerDiscount = useDemoCartStore(
-    (state) => state.setPartnerDiscount,
-  );
   const announce = useDemoCartStore((state) => state.announce);
 
   const amounts = calculateDemoAmounts(items, usePartnerDiscount);
@@ -100,19 +98,7 @@ export default function DemoCart() {
         </S.CartList>
       )}
 
-      <S.DiscountLabel>
-        <input
-          type="checkbox"
-          checked={usePartnerDiscount}
-          onChange={(event) => setPartnerDiscount(event.target.checked)}
-        />
-        제휴 할인 체험
-      </S.DiscountLabel>
-
-      <S.Note>
-        대인·소인 입장권 50%, 최대 2개. 대인부터 적용하며, 실제 카드 인증은
-        진행하지 않습니다.
-      </S.Note>
+      <DiscountVerification />
 
       <S.AmountList>
         <div>

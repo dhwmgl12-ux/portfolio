@@ -35,11 +35,22 @@ export const useDemoCartStore = create((set) => ({
       message: "장바구니를 비웠습니다.",
     }),
 
-  setPartnerDiscount: (checked) =>
-    set({
-      usePartnerDiscount: checked,
-      message: "",
-    }),
+  verifyPartnerDiscount: (code) => {
+    const isValid = code.trim() === "1234";
 
-  announce: (message) => set({ message }),
+    set({
+      usePartnerDiscount: isValid,
+      message: isValid
+        ? "테스트 코드 확인이 완료되어 제휴 할인을 적용했습니다."
+        : "테스트 코드가 일치하지 않습니다.",
+    });
+
+    return isValid;
+  },
+
+  clearPartnerDiscount: () =>
+    set({
+      usePartnerDiscount: false,
+      message: "제휴 할인을 해제했습니다.",
+    }),
 }));

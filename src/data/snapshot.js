@@ -1,12 +1,5 @@
 export const snapshotItems = [
   {
-    id: "experience",
-    icon: "🛠️",
-    value: "약 6년",
-    label: "사회·현장 경험",
-    description: "인테리어 천장 시공",
-  },
-  {
     id: "project",
     icon: "🖥️",
     value: "ZooLeaf",
@@ -26,5 +19,12 @@ export const snapshotItems = [
     value: "React",
     label: "핵심 기술",
     description: "JavaScript · Zustand",
+  },
+  {
+    id: "experience",
+    icon: "🛠️",
+    value: "약 6년",
+    label: "사회·현장 경험",
+    description: "인테리어 천장 시공",
   },
 ];

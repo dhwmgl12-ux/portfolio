@@ -307,11 +307,15 @@ export const RuleList = styled.ul`
   display: grid;
   gap: ${({ theme }) => theme.spacing.lg};
   margin: 0;
-  padding-left: ${({ theme }) => theme.spacing.md};
+  padding: 0;
+  list-style: none;
   font-size: ${({ theme }) => theme.typography.small};
 
-  li::marker {
-    color: ${({ theme }) => theme.colors.accent};
+  li {
+    display: grid;
+    grid-template-columns: 40px minmax(0, 1fr);
+    align-items: start;
+    gap: ${({ theme }) => theme.spacing.sm};
   }
 
   p {
@@ -320,6 +324,17 @@ export const RuleList = styled.ul`
     font-size: ${({ theme }) => theme.typography.caption};
     line-height: 1.7;
   }
+`;
+
+export const RuleIcon = styled.span`
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid ${({ theme }) => theme.colors.accent};
+  border-radius: 50%;
+  background: ${({ theme }) => theme.colors.surface};
+  font-size: 20px;
 `;
 
 export const Status = styled.p`
@@ -393,4 +408,33 @@ export const CartThumbnail = styled.img`
   height: 44px;
   object-fit: cover;
   border-radius: ${({ theme }) => theme.radius.sm};
+`;
+export const VerificationPanel = styled.div`
+  margin-top: ${({ theme }) => theme.spacing.md};
+  padding-top: ${({ theme }) => theme.spacing.md};
+  border-top: 1px solid ${({ theme }) => theme.colors.border};
+
+  h4 {
+    margin: 0 0 ${({ theme }) => theme.spacing.sm};
+    font-size: ${({ theme }) => theme.typography.small};
+  }
+`;
+
+export const VerificationForm = styled.form`
+  display: grid;
+  gap: ${({ theme }) => theme.spacing.sm};
+  margin-top: ${({ theme }) => theme.spacing.md};
+`;
+
+export const VerifiedText = styled.p`
+  color: ${({ theme }) => theme.colors.accent};
+  font-size: ${({ theme }) => theme.typography.small};
+  font-weight: ${({ theme }) => theme.fontWeight.bold};
+`;
+
+export const ValidationError = styled.p`
+  margin: 0;
+  color: ${({ theme }) => theme.colors.text};
+  font-size: ${({ theme }) => theme.typography.caption};
+  line-height: 1.6;
 `;
