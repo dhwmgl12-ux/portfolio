@@ -53,10 +53,10 @@ export default function DemoCart() {
           {items.map((item) => (
             <S.CartItem key={item.key}>
               <S.CartItemHeader>
-                <strong>
-                  <span aria-hidden="true">{item.emoji} </span>
-                  {item.name}
-                </strong>
+                <S.CartProduct>
+                  <S.CartThumbnail src={item.imageUrl} alt="" loading="lazy" />
+                  <strong>{item.name}</strong>
+                </S.CartProduct>
 
                 <S.TextButton
                   type="button"

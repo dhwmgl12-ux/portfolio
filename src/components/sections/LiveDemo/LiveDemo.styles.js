@@ -379,3 +379,18 @@ export const DateInput = styled.input`
     opacity: 0.85;
   }
 `;
+
+export const CartProduct = styled.div`
+  display: flex;
+  align-items: center;
+  gap: ${({ theme }) => theme.spacing.sm};
+  min-width: 0;
+`;
+
+export const CartThumbnail = styled.img`
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  object-fit: cover;
+  border-radius: ${({ theme }) => theme.radius.sm};
+`;
