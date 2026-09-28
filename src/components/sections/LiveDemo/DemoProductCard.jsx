@@ -13,6 +13,8 @@ export default function DemoProductCard({ product }) {
 
   const needsDate = product.type !== "goods";
 
+  const unitPrice = product.optionPrices?.[option] ?? product.price;
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -20,7 +22,8 @@ export default function DemoProductCard({ product }) {
       id: product.id,
       type: product.type,
       name: product.name,
-      price: product.price,
+      price: unitPrice,
+      imageUrl: product.imageUrl,
       emoji: product.emoji,
       quantity,
       option,
@@ -31,10 +34,20 @@ export default function DemoProductCard({ product }) {
 
   return (
     <S.ProductCard>
-      <S.ProductVisual aria-hidden="true">{product.emoji}</S.ProductVisual>
+      {product.imageUrl ? (
+        <S.ProductImage
+          src={product.imageUrl}
+          alt={product.name}
+          $isTicket={product.type === "ticket"}
+          loading="lazy"
+          decoding="async"
+        />
+      ) : (
+        <S.Note>상품 이미지 준비 중</S.Note>
+      )}
 
       <S.ProductName>{product.name}</S.ProductName>
-      <S.Price>{formatWon(product.price)}</S.Price>
+      <S.Price>{formatWon(unitPrice)}</S.Price>
 
       <S.ProductForm onSubmit={handleSubmit}>
         <S.Field>
@@ -46,21 +59,28 @@ export default function DemoProductCard({ product }) {
             {product.options.map((value) => (
               <option key={value} value={value}>
                 {value}
+                {product.optionPrices
+                  ? ` · ${formatWon(product.optionPrices[value])}`
+                  : ""}
               </option>
             ))}
           </select>
         </S.Field>
 
         {needsDate && (
-          <S.Field>
-            방문일
-            <input
+          <S.DateField>
+            <S.DateLabel>
+              <span aria-hidden="true">📅</span>
+              방문일 선택
+            </S.DateLabel>
+
+            <S.DateInput
               type="date"
               required
               value={visitDate}
               onChange={(event) => setVisitDate(event.target.value)}
             />
-          </S.Field>
+          </S.DateField>
         )}
 
         {product.times && (

@@ -101,15 +101,6 @@ export const ProductCard = styled.article`
   background: ${({ theme }) => theme.colors.surface};
 `;
 
-export const ProductVisual = styled.div`
-  display: grid;
-  place-items: center;
-  aspect-ratio: 4 / 3;
-  border-radius: ${({ theme }) => theme.radius.sm};
-  background: ${({ theme }) => theme.colors.background};
-  font-size: 48px;
-`;
-
 export const ProductName = styled.h3`
   margin: ${({ theme }) => theme.spacing.sm} 0;
   font-size: ${({ theme }) => theme.typography.small};
@@ -336,4 +327,55 @@ export const Status = styled.p`
   margin: ${({ theme }) => theme.spacing.md} 0 0;
   color: ${({ theme }) => theme.colors.accent};
   font-size: ${({ theme }) => theme.typography.small};
+`;
+
+export const ProductImage = styled.img`
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: ${({ $isTicket }) => ($isTicket ? "auto" : "4 / 3")};
+  object-fit: ${({ $isTicket }) => ($isTicket ? "contain" : "cover")};
+  border-radius: ${({ theme }) => theme.radius.sm};
+  background: ${({ theme }) => theme.colors.background};
+`;
+
+export const DateField = styled.label`
+  display: grid;
+  gap: ${({ theme }) => theme.spacing.sm};
+  min-width: 0;
+  padding: ${({ theme }) => theme.spacing.sm};
+  border: 1px solid ${({ theme }) => theme.colors.border};
+  border-radius: ${({ theme }) => theme.radius.md};
+  background: ${({ theme }) => theme.colors.background};
+
+  &:focus-within {
+    border-color: ${({ theme }) => theme.colors.accent};
+  }
+`;
+
+export const DateLabel = styled.span`
+  display: flex;
+  align-items: center;
+  gap: ${({ theme }) => theme.spacing.sm};
+  color: ${({ theme }) => theme.colors.textSecondary};
+  font-size: ${({ theme }) => theme.typography.caption};
+`;
+
+export const DateInput = styled.input`
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  padding: ${({ theme }) => theme.spacing.xs};
+  border: 1px solid ${({ theme }) => theme.colors.border};
+  border-radius: ${({ theme }) => theme.radius.sm};
+  background: ${({ theme }) => theme.colors.surface};
+  color: ${({ theme }) => theme.colors.text};
+  font: inherit;
+  font-size: ${({ theme }) => theme.typography.small};
+  color-scheme: dark;
+
+  &::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    opacity: 0.85;
+  }
 `;
