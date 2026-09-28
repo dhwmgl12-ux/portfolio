@@ -25,7 +25,7 @@ export default function HowIThink() {
                     aria-controls={`thinking-answer-${item.id}`}
                     onClick={() => setActiveId(item.id)}
                   >
-                    <span aria-hidden="true">💡</span>
+                    <span aria-hidden="true">🌿</span>
                     <span>{item.question}</span>
                     <S.Chevron aria-hidden="true">
                       {activeId === item.id ? "−" : "+"}
@@ -85,7 +85,7 @@ export default function HowIThink() {
         </S.CodePanel>
 
         <S.DecisionCard aria-labelledby="decision-title">
-          <S.DecisionIcon aria-hidden="true">💡</S.DecisionIcon>
+          <S.DecisionIcon aria-hidden="true">🔎</S.DecisionIcon>
 
           <S.DecisionTitle id="decision-title">
             이렇게 판단했습니다.
