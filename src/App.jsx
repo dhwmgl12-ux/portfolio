@@ -6,6 +6,7 @@ import Snapshot from "./components/sections/Snapshot/Snapshot";
 import FeaturedProject from "./components/sections/FeaturedProject/FeaturedProject";
 import DevelopmentTimeline from "./components/sections/DevelopmentTimeline/DevelopmentTimeline";
 import LiveDemo from "./components/sections/LiveDemo/LiveDemo";
+import HowIThink from "./components/sections/HowIThink/HowIThink";
 import * as S from "./App.styles";
 
 export default function App() {
@@ -56,6 +57,7 @@ export default function App() {
         <FeaturedProject />
         <DevelopmentTimeline />
         <LiveDemo />
+        <HowIThink />
       </main>
     </>
   );
