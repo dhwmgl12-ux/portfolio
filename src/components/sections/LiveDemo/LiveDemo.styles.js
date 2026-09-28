@@ -438,3 +438,59 @@ export const ValidationError = styled.p`
   font-size: ${({ theme }) => theme.typography.caption};
   line-height: 1.6;
 `;
+
+export const OrderDialog = styled.dialog`
+  width: min(520px, calc(100% - 32px));
+  max-height: 85dvh;
+  margin: auto;
+  padding: ${({ theme }) => theme.spacing.lg};
+  overflow-y: auto;
+  border: 1px solid ${({ theme }) => theme.colors.border};
+  border-radius: ${({ theme }) => theme.radius.md};
+  background: ${({ theme }) => theme.colors.surface};
+  color: ${({ theme }) => theme.colors.text};
+
+  &::backdrop {
+    background: rgba(0, 0, 0, 0.75);
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    padding: ${({ theme }) => theme.spacing.md};
+  }
+`;
+
+export const OrderDialogHeader = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: ${({ theme }) => theme.spacing.md};
+  margin-bottom: ${({ theme }) => theme.spacing.sm};
+
+  h3 {
+    margin: 0;
+    font-size: ${({ theme }) => theme.typography.sectionTitle};
+  }
+`;
+
+export const OrderItemList = styled.ul`
+  display: grid;
+  gap: ${({ theme }) => theme.spacing.md};
+  margin: ${({ theme }) => theme.spacing.lg} 0;
+  padding: 0;
+  list-style: none;
+`;
+
+export const OrderItem = styled.li`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: ${({ theme }) => theme.spacing.sm};
+  padding-bottom: ${({ theme }) => theme.spacing.md};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.border};
+  font-size: ${({ theme }) => theme.typography.small};
+
+  > div {
+    min-width: 0;
+  }
+`;

@@ -1,6 +1,8 @@
 import { useDemoCartStore } from "../../../store/demoCartStore";
 import { calculateDemoAmounts, formatWon } from "../../../utils/demoCart";
 import DiscountVerification from "./DiscountVerification";
+import { useRef } from "react";
+import DemoOrderDialog from "./DemoOrderDialog";
 import * as S from "./LiveDemo.styles";
 
 export default function DemoCart() {
@@ -11,14 +13,14 @@ export default function DemoCart() {
   const changeQuantity = useDemoCartStore((state) => state.changeQuantity);
   const removeItem = useDemoCartStore((state) => state.removeItem);
   const clearCart = useDemoCartStore((state) => state.clearCart);
-  const announce = useDemoCartStore((state) => state.announce);
+  const orderDialogRef = useRef(null);
 
   const amounts = calculateDemoAmounts(items, usePartnerDiscount);
 
   const handleDemoOrder = () => {
-    announce(
-      `데모 주문 금액은 ${formatWon(amounts.total)}입니다. 실제 주문이나 결제는 발생하지 않습니다.`,
-    );
+    if (items.length === 0) return;
+
+    orderDialogRef.current?.showModal();
   };
 
   return (
@@ -136,6 +138,11 @@ export default function DemoCart() {
       >
         99+ 표시 체험: 첫 상품에 98개 추가
       </S.TextButton>
+      <DemoOrderDialog
+        dialogRef={orderDialogRef}
+        items={items}
+        amounts={amounts}
+      />
     </S.CartPanel>
   );
 }
