@@ -1,9 +1,9 @@
 import styled from "@emotion/styled";
 
 export const HeaderContainer = styled.header`
-  position: sticky;
-  top: 0;
+  position: relative;
   z-index: 20;
+  flex-shrink: 0;
   background: ${({ theme }) => theme.colors.background};
   border-bottom: 1px solid ${({ theme }) => theme.colors.border};
 `;
@@ -12,15 +12,12 @@ export const HeaderInner = styled.div`
   position: relative;
   display: flex;
   align-items: center;
-  gap: ${({ theme }) => theme.spacing.xl};
-  max-width: 1200px;
-  min-height: 72px;
-  margin-inline: auto;
-  padding: ${({ theme }) => theme.spacing.sm} ${({ theme }) => theme.spacing.lg};
+  gap: ${({ theme }) => theme.spacing.lg};
+  min-height: 64px;
+  padding: ${({ theme }) => `${theme.spacing.sm} ${theme.spacing.lg}`};
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     justify-content: space-between;
-    min-height: 64px;
     padding-inline: ${({ theme }) => theme.spacing.md};
   }
 `;
@@ -81,7 +78,7 @@ export const NavigationLink = styled.a`
   align-items: center;
   justify-content: center;
   min-height: 44px;
-  padding-inline: ${({ theme }) => theme.spacing.md};
+  padding-inline: ${({ theme }) => theme.spacing.sm};
   border-radius: ${({ theme }) => theme.radius.md};
   color: ${({ theme }) => theme.colors.textSecondary};
   font-size: 14px;
