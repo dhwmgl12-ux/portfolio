@@ -5,6 +5,7 @@ import Hero from "../components/sections/Hero/Hero";
 import Snapshot from "../components/sections/Snapshot/Snapshot";
 import Skills from "../components/sections/Skills/Skills";
 import ProjectPreview from "../components/sections/ProjectPreview/ProjectPreview";
+import Contact from "../components/sections/Contact/Contact";
 import * as S from "../App.styles";
 
 export default function HomePage() {
@@ -42,7 +43,9 @@ export default function HomePage() {
                   구현했습니다.
                 </p>
 
-                <S.Muted>이력서 · GitHub · 연락처: TODO</S.Muted>
+                <p>
+                  <a href="#contact">이력서·GitHub·연락처 확인 →</a>
+                </p>
               </S.Summary>
 
               <Hero />
@@ -54,6 +57,7 @@ export default function HomePage() {
 
         <ProjectPreview />
         <Skills />
+        <Contact />
       </main>
     </>
   );

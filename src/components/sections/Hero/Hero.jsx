@@ -1,4 +1,5 @@
 import { heroSkills } from "../../../data/skills";
+import { contact } from "../../../data/contact";
 import * as S from "./Hero.styles";
 
 export default function Hero() {
@@ -29,13 +30,27 @@ export default function Hero() {
             프로젝트 보기 <span aria-hidden="true">↗</span>
           </S.PrimaryLink>
 
-          <S.PendingButton type="button" disabled>
-            이력서 · 준비 중
-          </S.PendingButton>
+          {contact.resumeUrl ? (
+            <S.SecondaryLink
+              href={contact.resumeUrl}
+              download="박형우_이력서.pdf"
+            >
+              이력서 다운로드 ↓
+            </S.SecondaryLink>
+          ) : (
+            <S.PendingButton type="button" disabled>
+              이력서 · 준비 중
+            </S.PendingButton>
+          )}
 
-          <S.PendingButton type="button" disabled>
-            GitHub · 준비 중
-          </S.PendingButton>
+          <S.SecondaryLink
+            href={contact.githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="박형우 GitHub 보기 (새 탭)"
+          >
+            GitHub ↗
+          </S.SecondaryLink>
         </S.Actions>
 
         <S.SkillList aria-label="주요 기술">

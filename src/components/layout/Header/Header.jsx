@@ -5,7 +5,7 @@ const navigationItems = [
   { label: "Home", href: "#home" },
   { label: "Project", href: "#project" },
   { label: "Skills", href: "#skills" },
-  { label: "About", href: "#about" },
+  { label: "Contact", href: "#contact" },
 ];
 
 export default function Header({ isSummaryOpen, onToggleSummary }) {
