@@ -7,6 +7,8 @@ import FeaturedProject from "./components/sections/FeaturedProject/FeaturedProje
 import DevelopmentTimeline from "./components/sections/DevelopmentTimeline/DevelopmentTimeline";
 import LiveDemo from "./components/sections/LiveDemo/LiveDemo";
 import HowIThink from "./components/sections/HowIThink/HowIThink";
+import ProblemSolving from "./components/sections/ProblemSolving/ProblemSolving";
+import Improvements from "./components/sections/Improvements/Improvements";
 import * as S from "./App.styles";
 
 export default function App() {
@@ -58,6 +60,8 @@ export default function App() {
         <DevelopmentTimeline />
         <LiveDemo />
         <HowIThink />
+        <ProblemSolving />
+        <Improvements />
       </main>
     </>
   );
