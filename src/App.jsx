@@ -1,8 +1,9 @@
 import { useEffect } from "react";
-import { Link, Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 
 import HomePage from "./pages/HomePage";
 import ZooleafPage from "./pages/ZooleafPage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 export default function App() {
   const { pathname } = useLocation();
@@ -23,15 +24,7 @@ export default function App() {
       <Route path="/" element={<HomePage />} />
       <Route path="/projects/zooleaf" element={<ZooleafPage />} />
 
-      <Route
-        path="*"
-        element={
-          <main>
-            <h1>페이지를 찾을 수 없습니다.</h1>
-            <Link to="/">홈으로 돌아가기</Link>
-          </main>
-        }
-      />
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
 }
