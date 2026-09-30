@@ -9,6 +9,7 @@ import LiveDemo from "./components/sections/LiveDemo/LiveDemo";
 import HowIThink from "./components/sections/HowIThink/HowIThink";
 import ProblemSolving from "./components/sections/ProblemSolving/ProblemSolving";
 import Improvements from "./components/sections/Improvements/Improvements";
+import Skills from "./components/sections/Skills/Skills";
 import * as S from "./App.styles";
 
 export default function App() {
@@ -62,6 +63,7 @@ export default function App() {
         <HowIThink />
         <ProblemSolving />
         <Improvements />
+        <Skills />
       </main>
     </>
   );
