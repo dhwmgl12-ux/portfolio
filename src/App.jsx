@@ -1,122 +1,99 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+import { useState } from "react";
+import styled from "@emotion/styled";
+import Header from "./components/layout/Header/Header";
+import Hero from "./components/sections/Hero/Hero";
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const [isSummaryOpen, setIsSummaryOpen] = useState(false);
 
   return (
     <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
+      <SkipLink href="#main">본문 바로가기</SkipLink>
+
+      <Header
+        isSummaryOpen={isSummaryOpen}
+        onToggleSummary={() => setIsSummaryOpen((previous) => !previous)}
+      />
+
+      <main id="main">
+        <Summary
+          id="recruiter-summary"
+          hidden={!isSummaryOpen}
+          aria-labelledby="summary-title"
         >
-          Count is {count}
-        </button>
-      </section>
+          <Eyebrow>RECRUITER MODE</Eyebrow>
+          <h2 id="summary-title">Frontend Developer 박형우</h2>
+          <p>React · JavaScript · Zustand · Emotion</p>
+          <p>
+            ZooLeaf에서 장바구니, 마이페이지, 404 페이지를 담당했습니다. 상품
+            구분과 수량 관리, 회원정보·배송지·주문 관리 기능을 구현했습니다.
+          </p>
+          <Muted>이력서 · GitHub · 연락처: TODO</Muted>
+        </Summary>
 
-      <div className="ticks"></div>
+        <Hero />
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
+        {/* 다음 단계에서 FeaturedProject 컴포넌트로 확장 */}
+        <ProjectSection id="project" aria-labelledby="project-title">
+          <Eyebrow>01 / FEATURED PROJECT</Eyebrow>
+          <h2 id="project-title">ZooLeaf</h2>
+          <p>동물원 예약 및 쇼핑 전문 e-Commerce</p>
+          <Muted>담당: 장바구니 · 마이페이지 · 404 페이지</Muted>
+        </ProjectSection>
+      </main>
     </>
-  )
+  );
 }
 
-export default App
+const SkipLink = styled.a`
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 100;
+  padding: 12px 20px;
+  background: ${({ theme }) => theme.colors.accent};
+  color: ${({ theme }) => theme.colors.background};
+  transform: translateY(-160%);
+
+  &:focus {
+    transform: translateY(0);
+  }
+`;
+
+const Summary = styled.section`
+  max-width: 1152px;
+  margin: 24px auto;
+  padding: 24px;
+  border: 1px solid ${({ theme }) => theme.colors.border};
+  border-radius: ${({ theme }) => theme.radius.md};
+  background: ${({ theme }) => theme.colors.surface};
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    margin-inline: 16px;
+  }
+`;
+
+const Eyebrow = styled.p`
+  margin: 0 0 12px;
+  color: ${({ theme }) => theme.colors.accent};
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+`;
+
+const ProjectSection = styled.section`
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 64px 24px;
+  border-top: 1px solid ${({ theme }) => theme.colors.border};
+
+  h2 {
+    margin: 0;
+    font-size: 40px;
+    color: ${({ theme }) => theme.colors.accent};
+  }
+`;
+
+const Muted = styled.p`
+  color: ${({ theme }) => theme.colors.textSecondary};
+`;
