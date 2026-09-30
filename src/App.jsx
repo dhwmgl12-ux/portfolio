@@ -1,70 +1,37 @@
-import { useState } from "react";
+import { useEffect } from "react";
+import { Link, Route, Routes, useLocation } from "react-router-dom";
 
-import Header from "./components/layout/Header/Header";
-import Hero from "./components/sections/Hero/Hero";
-import Snapshot from "./components/sections/Snapshot/Snapshot";
-import FeaturedProject from "./components/sections/FeaturedProject/FeaturedProject";
-import DevelopmentTimeline from "./components/sections/DevelopmentTimeline/DevelopmentTimeline";
-import LiveDemo from "./components/sections/LiveDemo/LiveDemo";
-import HowIThink from "./components/sections/HowIThink/HowIThink";
-import ProblemSolving from "./components/sections/ProblemSolving/ProblemSolving";
-import Improvements from "./components/sections/Improvements/Improvements";
-import Skills from "./components/sections/Skills/Skills";
-import * as S from "./App.styles";
+import HomePage from "./pages/HomePage";
+import ZooleafPage from "./pages/ZooleafPage";
 
 export default function App() {
-  const [isSummaryOpen, setIsSummaryOpen] = useState(false);
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+
+    document.title =
+      pathname === "/"
+        ? "박형우 | Frontend Developer"
+        : pathname === "/projects/zooleaf"
+          ? "ZooLeaf | 박형우 포트폴리오"
+          : "페이지를 찾을 수 없습니다 | 박형우";
+  }, [pathname]);
 
   return (
-    <>
-      <S.SkipLink href="#home">본문 바로가기</S.SkipLink>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/projects/zooleaf" element={<ZooleafPage />} />
 
-      <main>
-        <S.IntroBackground>
-          <S.IntroLayout>
-            <S.IntroLeft>
-              <Header
-                isSummaryOpen={isSummaryOpen}
-                onToggleSummary={() =>
-                  setIsSummaryOpen((previous) => !previous)
-                }
-              />
-
-              <S.Summary
-                id="recruiter-summary"
-                hidden={!isSummaryOpen}
-                aria-labelledby="summary-title"
-              >
-                <S.Eyebrow>RECRUITER MODE</S.Eyebrow>
-
-                <h2 id="summary-title">Frontend Developer 박형우</h2>
-
-                <p>React · JavaScript · Zustand · Emotion</p>
-
-                <p>
-                  ZooLeaf에서 장바구니, 마이페이지, 404 페이지를 담당했습니다.
-                  상품 구분과 수량 관리, 회원정보·배송지·주문 관리 기능을
-                  구현했습니다.
-                </p>
-
-                <S.Muted>이력서 · GitHub · 연락처: TODO</S.Muted>
-              </S.Summary>
-
-              <Hero />
-            </S.IntroLeft>
-
-            <Snapshot />
-          </S.IntroLayout>
-        </S.IntroBackground>
-
-        <FeaturedProject />
-        <DevelopmentTimeline />
-        <LiveDemo />
-        <HowIThink />
-        <ProblemSolving />
-        <Improvements />
-        <Skills />
-      </main>
-    </>
+      <Route
+        path="*"
+        element={
+          <main>
+            <h1>페이지를 찾을 수 없습니다.</h1>
+            <Link to="/">홈으로 돌아가기</Link>
+          </main>
+        }
+      />
+    </Routes>
   );
 }
