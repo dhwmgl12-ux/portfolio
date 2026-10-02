@@ -222,34 +222,36 @@ export const SectionTitle = styled.h3`
 
 export const ScreenList = styled.ul`
   display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: ${({ theme }) => theme.spacing.md};
   margin: ${({ theme }) => theme.spacing.lg} 0 0;
   padding: 0;
   list-style: none;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: minmax(0, 1fr);
   }
 `;
 
 export const ScreenButton = styled.button`
   display: block;
   width: 100%;
-  padding: 0;
-  border: 0;
-  border-radius: ${({ theme }) => theme.radius.sm};
-  background: transparent;
+  height: 100%;
+  padding: ${({ theme }) => theme.spacing.md};
+  border: 1px solid ${({ theme }) => theme.colors.border};
+  border-radius: ${({ theme }) => theme.radius.md};
+  background: ${({ theme }) => theme.colors.surface};
   color: ${({ theme }) => theme.colors.text};
   text-align: left;
   cursor: pointer;
 
   &:hover {
-    color: ${({ theme }) => theme.colors.accent};
+    border-color: ${({ theme }) => theme.colors.accent};
+  }
+
+  &:focus-visible {
+    outline: 2px solid ${({ theme }) => theme.colors.accent};
+    outline-offset: 4px;
   }
 `;
 
@@ -330,4 +332,37 @@ export const ScreenReaderText = styled.span`
   clip-path: inset(50%);
   white-space: nowrap;
   border: 0;
+`;
+
+export const ScreenDescription = styled.span`
+  display: block;
+  margin-top: ${({ theme }) => theme.spacing.sm};
+  color: ${({ theme }) => theme.colors.textSecondary};
+  font-size: ${({ theme }) => theme.typography.small};
+  line-height: 1.7;
+  word-break: keep-all;
+`;
+
+export const TeamScreens = styled.details`
+  margin-top: ${({ theme }) => theme.spacing.xl};
+  padding-top: ${({ theme }) => theme.spacing.lg};
+  border-top: 1px solid ${({ theme }) => theme.colors.border};
+`;
+
+export const TeamScreensSummary = styled.summary`
+  min-height: 44px;
+  padding-block: ${({ theme }) => theme.spacing.sm};
+  color: ${({ theme }) => theme.colors.textSecondary};
+  font-size: ${({ theme }) => theme.typography.small};
+  font-weight: ${({ theme }) => theme.fontWeight.bold};
+  cursor: pointer;
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.accent};
+  }
+
+  &:focus-visible {
+    outline: 2px solid ${({ theme }) => theme.colors.accent};
+    outline-offset: 4px;
+  }
 `;
