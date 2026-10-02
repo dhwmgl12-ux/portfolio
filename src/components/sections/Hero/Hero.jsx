@@ -1,5 +1,6 @@
 import { heroSkills } from "../../../data/skills";
 import { contact } from "../../../data/contact";
+import { Link } from "react-router-dom";
 import * as S from "./Hero.styles";
 
 export default function Hero() {
@@ -26,8 +27,8 @@ export default function Hero() {
         </S.Description>
 
         <S.Actions>
-          <S.PrimaryLink href="#project">
-            프로젝트 보기 <span aria-hidden="true">↗</span>
+          <S.PrimaryLink as={Link} to="/projects">
+            프로젝트 보기 <span aria-hidden="true">→</span>
           </S.PrimaryLink>
 
           {contact.resumeUrl ? (

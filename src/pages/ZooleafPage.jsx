@@ -15,8 +15,8 @@ export default function ZooleafPage() {
 
       <S.PageHeader>
         <S.HeaderInner>
-          <S.HomeLink as={Link} to="/">
-            ← 포트폴리오 홈
+          <S.HomeLink as={Link} to="/projects">
+            ← 프로젝트 목록
           </S.HomeLink>
           <span>PROJECT / ZOOLEAF</span>
         </S.HeaderInner>

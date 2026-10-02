@@ -4,7 +4,6 @@ import Header from "../components/layout/Header/Header";
 import Hero from "../components/sections/Hero/Hero";
 import Snapshot from "../components/sections/Snapshot/Snapshot";
 import Skills from "../components/sections/Skills/Skills";
-import ProjectPreview from "../components/sections/ProjectPreview/ProjectPreview";
 import Contact from "../components/sections/Contact/Contact";
 import RecruiterSummary from "../components/sections/RecruiterSummary/RecruiterSummary";
 import * as S from "../App.styles";
@@ -36,7 +35,6 @@ export default function HomePage() {
           </S.IntroLayout>
         </S.IntroBackground>
 
-        <ProjectPreview />
         <Skills />
         <Contact />
       </main>

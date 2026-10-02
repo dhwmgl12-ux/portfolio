@@ -1,9 +1,10 @@
 import { useRef, useState } from "react";
 import * as S from "./Header.styles";
+import { Link } from "react-router-dom";
 
 const navigationItems = [
   { label: "Home", href: "#home" },
-  { label: "Project", href: "#project" },
+  { label: "Project", to: "/projects" },
   { label: "Skills", href: "#skills" },
   { label: "Contact", href: "#contact" },
 ];
@@ -72,11 +73,17 @@ export default function Header({ isSummaryOpen, onToggleSummary }) {
           $isOpen={isMenuOpen}
         >
           <S.NavigationList>
-            {navigationItems.map(({ label, href }) => (
-              <li key={href}>
-                <S.NavigationLink href={href} onClick={closeMenu}>
-                  {label}
-                </S.NavigationLink>
+            {navigationItems.map(({ label, href, to }) => (
+              <li key={label}>
+                {to ? (
+                  <S.NavigationLink as={Link} to={to} onClick={closeMenu}>
+                    {label}
+                  </S.NavigationLink>
+                ) : (
+                  <S.NavigationLink href={href} onClick={closeMenu}>
+                    {label}
+                  </S.NavigationLink>
+                )}
               </li>
             ))}
           </S.NavigationList>
