@@ -26,28 +26,28 @@ export const zooleafProject = {
     {
       id: "main",
       title: "메인 페이지",
-      image: "/projects/zooleaf/main.png",
+      image: "/projects/zooleaf/main.webp",
       isMine: false,
       description: "서비스의 입장권, 체험, 굿즈를 소개하는 메인 화면입니다.",
     },
     {
       id: "product",
       title: "상품 목록",
-      image: "/projects/zooleaf/product.png",
+      image: "/projects/zooleaf/product.webp",
       isMine: false,
       description: "입장권과 패키지 상품을 탐색하는 화면입니다.",
     },
     {
       id: "detail",
       title: "상품 상세",
-      image: "/projects/zooleaf/detail.png",
+      image: "/projects/zooleaf/detail.webp",
       isMine: false,
       description: "상품 정보와 구매 옵션을 확인하는 화면입니다.",
     },
     {
       id: "cart",
       title: "장바구니",
-      image: "/projects/zooleaf/cart.png",
+      image: "/projects/zooleaf/cart.webp",
       isMine: true,
       description:
         "장바구니 상품의 선택, 수량 변경과 삭제를 처리하는 화면을 담당했습니다.",
@@ -55,7 +55,7 @@ export const zooleafProject = {
     {
       id: "mypage",
       title: "마이페이지",
-      image: "/projects/zooleaf/mypage.png",
+      image: "/projects/zooleaf/mypage.webp",
       isMine: true,
       description:
         "회원정보, 배송지, 주문 내역과 주문 취소 기능을 담당했습니다.",
@@ -63,7 +63,7 @@ export const zooleafProject = {
     {
       id: "404",
       title: "404 페이지",
-      image: "/projects/zooleaf/404.png",
+      image: "/projects/zooleaf/404.webp",
       isMine: true,
       description:
         "존재하지 않는 경로를 안내하고 메인으로 돌아갈 수 있는 화면을 담당했습니다.",

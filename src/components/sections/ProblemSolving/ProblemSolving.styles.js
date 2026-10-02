@@ -41,13 +41,9 @@ export const Introduction = styled.p`
 
 export const CaseGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items: start;
   gap: ${({ theme }) => theme.spacing.md};
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     grid-template-columns: minmax(0, 1fr);

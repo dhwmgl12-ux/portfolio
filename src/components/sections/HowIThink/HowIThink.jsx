@@ -2,10 +2,14 @@ import { useState } from "react";
 import { thinkingItems } from "../../../data/howIThink";
 import * as S from "./HowIThink.styles";
 
-export default function HowIThink() {
-  const [activeId, setActiveId] = useState(thinkingItems[0].id);
+const designItems = thinkingItems.filter(
+  (item) => item.id === "identity" || item.id === "sync",
+);
 
-  const activeItem = thinkingItems.find((item) => item.id === activeId);
+export default function HowIThink() {
+  const [activeId, setActiveId] = useState(designItems[0].id);
+
+  const activeItem = designItems.find((item) => item.id === activeId);
 
   return (
     <S.Section aria-labelledby="thinking-title">
@@ -16,7 +20,7 @@ export default function HowIThink() {
           <S.Title id="thinking-title">왜 이런 방식으로 구현했을까요?</S.Title>
 
           <S.QuestionList>
-            {thinkingItems.map((item) => (
+            {designItems.map((item) => (
               <li key={item.id}>
                 <S.QuestionHeading>
                   <S.QuestionButton
@@ -46,7 +50,7 @@ export default function HowIThink() {
 
         <S.CodePanel aria-labelledby="code-peek-title">
           <S.CodeNavigation role="group" aria-label="코드 주제 선택">
-            {thinkingItems.map((item) => (
+            {designItems.map((item) => (
               <S.CodeButton
                 key={item.id}
                 type="button"

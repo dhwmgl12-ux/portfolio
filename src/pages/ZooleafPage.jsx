@@ -13,26 +13,26 @@ export default function ZooleafPage() {
     <>
       <S.SkipLink href="#project-main">본문 바로가기</S.SkipLink>
 
-      <S.PageHeader>
-        <S.HeaderInner>
-          <S.HomeLink as={Link} to="/">
-            ← 포트폴리오 홈
-          </S.HomeLink>
-          <span>PROJECT / ZOOLEAF</span>
-        </S.HeaderInner>
-      </S.PageHeader>
-
       <main id="project-main" tabIndex={-1}>
         <S.PageIntroduction>
+          <S.HomeLink as={Link} to="/projects">
+            ← 프로젝트 목록
+          </S.HomeLink>
+
           <h1>ZooLeaf 프로젝트 상세</h1>
+
           <p>
             장바구니·마이페이지·404 페이지의 구현 경험과 문제 해결 과정을
             소개합니다.
           </p>
         </S.PageIntroduction>
-
         <FeaturedProject />
-        <DevelopmentTimeline />
+
+        <S.ProcessDetails>
+          <S.ProcessSummary>프로젝트 진행 과정 보기</S.ProcessSummary>
+          <DevelopmentTimeline />
+        </S.ProcessDetails>
+
         <LiveDemo />
         <HowIThink />
         <ProblemSolving />

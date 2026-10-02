@@ -9,10 +9,17 @@ export const HeaderContainer = styled.header`
 `;
 
 export const HeaderInner = styled.div`
+  width: 100%;
+  max-width: ${({ theme }) => theme.layout.contentWidth};
+  margin-inline: auto;
   position: relative;
   display: flex;
   align-items: center;
   gap: ${({ theme }) => theme.spacing.lg};
+
+  width: 100%;
+  max-width: ${({ theme }) => theme.layout.contentWidth};
+  margin-inline: auto;
   min-height: 64px;
   padding: ${({ theme }) => `${theme.spacing.sm} ${theme.spacing.lg}`};
 
@@ -87,7 +94,8 @@ export const NavigationLink = styled.a`
     background-color 160ms ease;
 
   &:hover,
-  &:focus-visible {
+  &:focus-visible,
+  &[aria-current="location"] {
     color: ${({ theme }) => theme.colors.accent};
     background: ${({ theme }) => theme.colors.surface};
   }
@@ -145,4 +153,10 @@ export const MenuButton = styled.button`
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     display: inline-flex;
   }
+`;
+
+export const SummaryContainer = styled.div`
+  width: 100%;
+  max-width: ${({ theme }) => theme.layout.contentWidth};
+  margin-inline: auto;
 `;
