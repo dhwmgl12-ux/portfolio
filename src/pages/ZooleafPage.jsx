@@ -32,7 +32,12 @@ export default function ZooleafPage() {
         </S.PageIntroduction>
 
         <FeaturedProject />
-        <DevelopmentTimeline />
+
+        <S.ProcessDetails>
+          <S.ProcessSummary>프로젝트 진행 과정 보기</S.ProcessSummary>
+          <DevelopmentTimeline />
+        </S.ProcessDetails>
+
         <LiveDemo />
         <HowIThink />
         <ProblemSolving />

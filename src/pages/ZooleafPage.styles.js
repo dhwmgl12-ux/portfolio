@@ -64,3 +64,26 @@ export const PageIntroduction = styled.div`
     line-height: 1.8;
   }
 `;
+
+export const ProcessDetails = styled.details`
+  border-top: 1px solid ${({ theme }) => theme.colors.border};
+  background: ${({ theme }) => theme.colors.background};
+`;
+
+export const ProcessSummary = styled.summary`
+  max-width: ${({ theme }) => theme.layout.contentWidth};
+  margin-inline: auto;
+  padding: ${({ theme }) => theme.spacing.lg};
+  color: ${({ theme }) => theme.colors.textSecondary};
+  font-size: ${({ theme }) => theme.typography.small};
+  cursor: pointer;
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.accent};
+  }
+
+  &:focus-visible {
+    outline: 2px solid ${({ theme }) => theme.colors.accent};
+    outline-offset: -4px;
+  }
+`;
