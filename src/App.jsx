@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 
+import Header from "./components/layout/Header/Header";
 import HomePage from "./pages/HomePage";
 import ProjectsPage from "./pages/ProjectsPage";
 import ZooleafPage from "./pages/ZooleafPage";
@@ -13,21 +14,42 @@ const pageTitles = {
 };
 
 export default function App() {
-  const { pathname } = useLocation();
+  const { pathname, hash, key } = useLocation();
 
   useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
-
     document.title =
       pageTitles[pathname] ?? "페이지를 찾을 수 없습니다 | 박형우";
-  }, [pathname]);
+
+    const frameId = requestAnimationFrame(() => {
+      const target = hash ? document.getElementById(hash.slice(1)) : null;
+
+      if (target) {
+        target.scrollIntoView({
+          behavior: "instant",
+          block: "start",
+        });
+      } else {
+        window.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: "instant",
+        });
+      }
+    });
+
+    return () => cancelAnimationFrame(frameId);
+  }, [pathname, hash, key]);
 
   return (
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/projects" element={<ProjectsPage />} />
-      <Route path="/projects/zooleaf" element={<ZooleafPage />} />
-      <Route path="*" element={<NotFoundPage />} />
-    </Routes>
+    <>
+      <Header key={pathname} />
+
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/projects" element={<ProjectsPage />} />
+        <Route path="/projects/zooleaf" element={<ZooleafPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+    </>
   );
 }
